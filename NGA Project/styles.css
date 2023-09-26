@@ -1,0 +1,232 @@
+@import url(https://fonts.googleapis.com/css?family=Epilogue:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
+
+/* styles.css */
+
+/* Background color for the entire page */
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for the D3.js chart and content */
+#content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+    padding: 20px;
+    background-color: black; /* Background color for the content container */
+}
+
+/* Right content (SVG/chart) */
+#right-content {
+    flex: 1; /* Take up available space */
+    text-align: center;
+}
+
+/* Left content */
+#left-content {
+    flex: 1; /* Take up available space */
+    padding: 60px 20px 20px; /* Remove top padding and keep bottom padding */
+    color: #D7D7D7; /* Text color for the left content */
+}
+
+h1 {
+    font-size: 80px;
+    font-family: Epilogue;
+    font-weight: 200;
+    color: #D7D7D7;
+    margin: 0; /* Remove margin to align with the top of the container */
+}
+
+h4 {
+    font-size: 48px; 
+    font-family: Epilogue;
+    font-weight: 200;
+    color: #D7D7D7; 
+}
+
+p {
+    font-size:14px;
+    font-family: Work Sans;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #D7D7D7;
+    width: 360px;
+}
+
+/* Legend item container */
+.legend-item {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    margin-top: 0px;
+}
+
+/* Age Range */
+.legend-rectangle {
+    width: 30px;
+    height: 80px;
+    background: linear-gradient(to bottom, #3780D7, #FFF800);
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-top: 0px;
+}
+
+/* Circles */
+.legend-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Make the circles round */
+    margin-right: 10px;
+    display: inline-block;
+    border: 2px solid transparent; /* Add a transparent border to create the stroke effect */
+}
+
+.legend-circle-1 {
+    background-color: black; /* Customize the color for Circle 1 */
+    box-shadow: 0 0 0 3px #D7D7D7; /* Add a 2px outline around the circle */
+}
+
+.legend-circle-2 {
+    background-color: #D7D7D7; /* Customize the color for Circle 2 */
+    box-shadow: 0 0 0 3px black; /* Add a 2px outline around the circle */
+}
+
+/* Labels */
+.legend-label {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 14px;
+    color: #D7D7D7;
+    font-family: Work Sans;
+}
+
+/* Line */
+.legend-line {
+    width: 40px;
+    height: 5px; /* Adjust the height as needed */
+    background-color: #D7D7D7; /* Line color */
+    margin-right: 10px;
+    margin-bottom: 5px; /* Add spacing between the line and circles */
+}
+
+
+/* Container for the toggle button and label */
+.toggle-container {
+    display: flex;
+    align-items: center; /* Vertically center the elements */
+    margin-top: 50px; /* Adjust the margin-top to move the toggle down */
+  }
+  
+  /* Label for the toggle */
+.toggle-label {
+    margin-left: 10px; /* Adjust the margin as needed for spacing */
+  }
+
+/* Toggle switch styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #AEAEAE;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Rounded sliders */
+.slider.round:before {
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #6D6D6D;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+
+/* AXIS STYLING */
+
+/* X-axis line */
+.x-axis path,
+.x-axis line {
+    stroke: #D7D7D7; /* Change the color of the X-axis line */
+}
+
+/* Y-axis line */
+.y-axis path,
+.y-axis line {
+    stroke: #D7D7D7; /* Change the color of the Y-axis line */
+}
+
+/* Axis text */
+.x-axis text,
+.y-axis text {
+    font-size: 14px;
+    fill: #D7D7D7; 
+    font-family: Roboto Mono; 
+}
+
+/* Y-axis label text */
+#d3-container text.y-axis-label {
+    font-size: 16px; 
+    fill: #D7D7D7; 
+    font-family: Work Sans; 
+    font-weight: 300; 
+}
+
+/* HISTOGRAM STYLING*/
+
+/* Max and Min values in circles */
+
+.top-label {
+    font-family: Roboto Mono; 
+    font-size: 12px; 
+    font-weight: bold; 
+    fill: #D7D7D7; 
+  }
+  
+  .bottom-label {
+    font-family: Roboto Mono; 
+    font-size: 12px; 
+    font-weight: Bold; 
+    fill: #000; 
+  }
+  
